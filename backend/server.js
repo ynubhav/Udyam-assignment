@@ -1,9 +1,9 @@
 // server.js
-import express from "express";
-import { PrismaClient } from "./generated/prisma/index.js"; // adjust if path differs
-import { aadhaarSchema, panSchema } from "./validation.js";
-import cors from "cors";
-import dotenv from "dotenv";
+const express=require('express');
+const { PrismaClient }= require("./generated/prisma/index.js"); // adjust if path differs
+const { aadhaarSchema, panSchema } =require("./validation.js");
+const cors =require('cors')
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -12,6 +12,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
 // Aadhaar verification
 app.post("/api/v1/verify-aadhaar", async (req, res) => {
@@ -95,3 +99,5 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+module.exports = { app, prisma }; // Export for testing
