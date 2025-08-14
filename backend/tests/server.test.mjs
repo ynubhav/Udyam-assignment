@@ -48,7 +48,6 @@ describe("API Tests: Aadhaar & PAN Verification", () => {
     expect(res.body.success).toBe(false);
   });
 
-  // Optional: if you have test data in DB, you can write a successful test
   // it("POST /api/v1/verify-aadhaar with valid data should return 200", async () => {
   //   const res = await request(app)
   //     .post("/api/v1/verify-aadhaar")
