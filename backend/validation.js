@@ -1,10 +1,10 @@
 // validation.js
-import { z } from "zod";
+const z=require('zod')
 
 // Regex for DD/MM/YYYY format
 const dobRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 
-export const aadhaarSchema = z.object({
+const aadhaarSchema = z.object({
   aadhaarNo: z
     .string()
     .length(12, "Aadhaar number must be exactly 12 digits")
@@ -15,7 +15,7 @@ export const aadhaarSchema = z.object({
     .max(100, "Full name is too long"),
 });
 
-export const panSchema = z.object({
+const panSchema = z.object({
   id: z.number().positive("Invalid Aadhaar ID"),
   panNo: z
     .string()
@@ -29,3 +29,8 @@ export const panSchema = z.object({
     .string()
     .regex(dobRegex, "Date of birth must be in DD/MM/YYYY format"),
 });
+
+module.exports = {
+  aadhaarSchema,
+  panSchema,
+};

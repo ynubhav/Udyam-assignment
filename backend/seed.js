@@ -1,7 +1,6 @@
-import { PrismaClient } from "./generated/prisma/client.js"; // Adjust the import path as necessary
+const { PrismaClient } = require("./generated/prisma/client.js");
 const prisma = new PrismaClient();
 
-// Helpers
 function randomNumber(length) {
   return Array.from({ length }, () => Math.floor(Math.random() * 10)).join("");
 }
