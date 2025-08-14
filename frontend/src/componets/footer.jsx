@@ -1,5 +1,5 @@
 import footerimg from "../assets/footer.jpeg"; // Adjust the path as necessary
-import footervid from "../assets/Udyam.mp4"; // Adjust the path as necessary
+import footervid from "../assets/udyam.mp4"; // Adjust the path as necessary
 
 export default function Footer() {
   return (
